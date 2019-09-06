@@ -30,13 +30,23 @@ Edit this document to include your answers after each question. Make sure to lea
 
 1. What is the DOM?
 
+    <strong> Answer: </strong> The DOM is the Document Object Model. It's what links your code to the browser. It reflects any changes to your code, after being written. For example, If a `div` was added to the `body` with JavaScript, your `HTML` code will not show that `div`, while the DOM will reflect those changes.  
+
 2. What is an event?
+
+    <strong> Answer: </strong> An event is anything happening within the page, usually  caused by the user. For example: click, hover, scroll, cut, drag, etc.
 
 3. What is an event listener?
 
+    <strong> Answer: </strong> An event listener is a method you can apply to elements, that takes in a callback function, which is called whenever the event is triggered. For example: `element.addEventListener('click', () => do stuff)`;
+
 4. Why would we convert a NodeList into an Array?
 
+    <strong> Answer: </strong> While Node lists are similarly structured to arrays, they only offer a few options of methods to use, such as, `.forEach()`. On the other hand, arrays have access to <em> all </em> protoype methods, such as: `.map()`, `.reduce()`, `.filter()`, etc.
+
 5. What is a component?
+
+    <strong> Answer: </strong> Components are chunks of code built to reinforce the idea of D.R.Y. They build a reusable skeleton of code, while taking in information to make each item unique. For example, having a page full of information about users. A component will allow each user's information to have a similar layout, style, and structure, while containing different information unique to that user specifically.
 
 ### Git Set up
 
