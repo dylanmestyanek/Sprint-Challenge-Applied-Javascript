@@ -24,13 +24,13 @@ axios.get('https://lambda-times-backend.herokuapp.com/articles')
     .then(respo => {
         obj = respo.data.articles;
         for (let article in obj){
-            obj[article].forEach(article => cardsContainer.appendChild(createCard(article.authorName, article.authorPhoto, article.headline)));
+            obj[article].forEach(item => cardsContainer.appendChild(createCard(item.authorName, item.authorPhoto, item.headline, article)));
         }
     })
     .catch(err => console.log('Failed to grab data', err));
 
 
-function createCard(name, img, headline){
+function createCard(name, img, headline, articleName){
     const card = document.createElement('div');
     const headlineContainer = document.createElement('div');
     const author = document.createElement('div');
@@ -43,6 +43,7 @@ function createCard(name, img, headline){
     author.classList.add('author');
     imgContainer.classList.add('img-container');
     
+    card.dataset.name = articleName;
     headlineContainer.textContent = headline;
     authorName.textContent = name;
     authorImg.src = img;

@@ -35,20 +35,26 @@ function createCarousel(){
   rightButton.classList.add('right-button');
 
   leftButton.addEventListener('click', () => {
+    console.log('i am left button', count);
+    count == 1 ? count = 4 : count--;
     let prevImg = document.getElementById(`${count === 1 ? 4 : count - 1}`);
-    let currImg = document.getElementById(`${count}`);
-    currImg.classList.toggle('active');
-    prevImg.classList.remove('active');
-    count == 4 ? count = 1 : count++;
-  });
-
-  rightButton.addEventListener('click', () => {
     let nextImg = document.getElementById(`${count === 4 ? 1 : count + 1}`);
     let currImg = document.getElementById(`${count}`);
     currImg.classList.toggle('active');
     nextImg.classList.remove('active');
-    count == 1 ? count = 4 : count--;
-  })
+    prevImg.classList.remove('active');
+  });
+
+  rightButton.addEventListener('click', () => {
+    console.log('I am right button', count);
+    count == 4 ? count = 1 : count++;
+    let prevImg = document.getElementById(`${count === 1 ? 4 : count - 1}`);
+    let nextImg = document.getElementById(`${count === 4 ? 1 : count + 1}`);
+    let currImg = document.getElementById(`${count}`);
+    currImg.classList.toggle('active');
+    nextImg.classList.remove('active');
+    prevImg.classList.remove('active');
+  });
 
   mountainsImg.src = "../../assets/carousel/mountains.jpeg";
   mountainsImg.id = '1';
