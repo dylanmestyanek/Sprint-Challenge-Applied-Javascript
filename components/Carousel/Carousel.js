@@ -17,3 +17,57 @@
     <div class="right-button"> > </div>
   </div>
 */
+
+const carousel = document.querySelector('.carousel-container');
+let count = 1;
+
+function createCarousel(){
+  const carouselContainer = document.createElement('div');
+  const leftButton = document.createElement('div');
+  const rightButton = document.createElement('div');
+  const mountainsImg = document.createElement('img');
+  const computerImg = document.createElement('img');
+  const treesImg = document.createElement('img');
+  const turntableImg = document.createElement('img');
+
+  carouselContainer.classList.add('carousel');
+  leftButton.classList.add('left-button');
+  rightButton.classList.add('right-button');
+
+  leftButton.addEventListener('click', () => {
+    let prevImg = document.getElementById(`${count === 1 ? 4 : count - 1}`);
+    let currImg = document.getElementById(`${count}`);
+    currImg.classList.toggle('active');
+    prevImg.classList.remove('active');
+    count == 4 ? count = 1 : count++;
+  });
+
+  rightButton.addEventListener('click', () => {
+    let nextImg = document.getElementById(`${count === 4 ? 1 : count + 1}`);
+    let currImg = document.getElementById(`${count}`);
+    currImg.classList.toggle('active');
+    nextImg.classList.remove('active');
+    count == 1 ? count = 4 : count--;
+  })
+
+  mountainsImg.src = "../../assets/carousel/mountains.jpeg";
+  mountainsImg.id = '1';
+  computerImg.src = "../../assets/carousel/computer.jpeg";
+  computerImg.id = '2';
+  treesImg.src = "../../assets/carousel/trees.jpeg";
+  treesImg.id = '3';
+  turntableImg.src = "../../assets/carousel/turntable.jpeg";
+  turntableImg.id = '4';
+
+  carouselContainer.appendChild(leftButton);
+  carouselContainer.appendChild(mountainsImg);
+  carouselContainer.appendChild(computerImg);
+  carouselContainer.appendChild(treesImg);
+  carouselContainer.appendChild(turntableImg);
+  carouselContainer.appendChild(rightButton);
+
+  return carouselContainer;
+};
+
+
+carousel.appendChild(createCarousel());
